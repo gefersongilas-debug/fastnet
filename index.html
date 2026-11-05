@@ -243,6 +243,28 @@
       loader.async = true;
       loader.onerror = () => console.error('[NPS] Não foi possível carregar o componente central.');
       document.head.appendChild(loader);
+
+      customElements.whenDefined('kloh-nps-popup').then(() => {
+        const popup = document.querySelector('kloh-nps-popup');
+        if (!popup?.shadowRoot) return;
+
+        const positionStyle = document.createElement('style');
+        positionStyle.textContent = `
+          .launcher {
+            left: 22px !important;
+            right: auto !important;
+          }
+
+          @media (max-width: 640px) {
+            .launcher {
+              left: 16px !important;
+              right: auto !important;
+              bottom: 16px !important;
+            }
+          }
+        `;
+        popup.shadowRoot.appendChild(positionStyle);
+      });
     })();
   </script>
   <!-- NPS CENTRAL — FIM -->
