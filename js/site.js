@@ -192,7 +192,7 @@
           observer.unobserve(entry.target);
         });
       }, { threshold: 0.12 });
-      document.querySelectorAll('.section-heading, .plan-card, .connection-content, .benefits-intro, .benefit-card, .difference-item, .faq-title-col, .faq-items details, .final-content, .footer-content').forEach(el => observer.observe(el));
+      document.querySelectorAll('.section-heading, .plan-card, .connection-content, .streaming-copy, .streaming-image-slot, .benefits-intro, .benefit-card, .difference-item, .faq-title-col, .faq-items details, .final-content, .footer-content').forEach(el => observer.observe(el));
     }
 
     // Acordeão com altura animada também quando a biblioteca externa falhar.
@@ -257,6 +257,8 @@
   revealGroup('.plans-section .section-heading > *', '.plans-section .section-heading');
   revealGroup('.plan-card', '.plans-grid', { stagger: .09, start: 'top 84%' });
   revealGroup('.connection-content > *', '.connection-band', { stagger: .11 });
+  revealGroup('.streaming-copy > *', '.streaming-section', { stagger: .11 });
+  revealGroup('.streaming-image-slot', '.streaming-section', { start: 'top 83%' });
   revealGroup('.benefits-intro > .eyebrow, .benefits-intro > h2, .benefits-intro > p, .orbit-panel', '.benefits-intro', { stagger: .12 });
   revealGroup('.benefit-card', '.benefit-cards', { stagger: .09 });
   revealGroup('.difference-section .section-heading > *', '.difference-section .section-heading');
