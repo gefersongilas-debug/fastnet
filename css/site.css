@@ -552,11 +552,11 @@ html.gsap-scroll-smoother #smooth-content { padding-top: 116px; }
 .streaming-layout {
   position: relative;
   z-index: 1;
-  min-height: 675px;
+  min-height: 0;
   padding-block: 76px;
   display: grid;
   grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
-  align-items: center;
+  align-items: stretch;
   gap: 36px;
 }
 .streaming-copy {
@@ -584,16 +584,20 @@ html.gsap-scroll-smoother #smooth-content { padding-top: 116px; }
   margin-top: 30px;
 }
 .streaming-image-slot {
+  position: relative;
   min-width: 0;
-  min-height: 390px;
+  min-height: 0;
   display: grid;
-  place-items: center;
+  place-items: stretch;
 }
 .streaming-image-slot img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  max-width: 560px;
-  height: auto;
-  object-fit: contain;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
   border: 1px solid rgba(193, 217, 255, .16);
   border-radius: 22px;
   box-shadow: 0 25px 65px rgba(0, 8, 30, .32), 0 0 70px rgba(26, 91, 232, .13);
@@ -601,14 +605,15 @@ html.gsap-scroll-smoother #smooth-content { padding-top: 116px; }
 
 @media (max-width: 900px) {
   .streaming-layout {
-    min-height: 610px;
-    grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
-    gap: 22px;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
     padding-block: 67px;
   }
   .streaming-copy h2 { font-size: clamp(33px, 4.8vw, 45px); }
   .streaming-copy > p { font-size: 13px; }
-  .streaming-image-slot { min-height: 310px; }
+  .streaming-image-slot { min-height: 0; }
+  .streaming-image-slot img { position: static; height: auto; object-fit: contain; }
 }
 
 @media (max-width: 600px) {
